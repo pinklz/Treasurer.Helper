@@ -24,7 +24,8 @@ service = discovery.build(
 )
 
 # Prints the responses of your specified form:
-form_id = "1ta2vSHzO3xQVr63Zal760EepvbWXNBqElTYvsEfh6Dg"
+form_id = "1ta2vSHzO3xQVr63Zal760EepvbWXNBqElTYvsEfh6Dg"  #moose
+#form_id = "1aBAmn7fI0OVVQsEOKpfArrBtMWQOHONelqfKOtKdgSk"  #elk
 # result holds the entire response body
 #result = service.forms().responses().list(formId=form_id).execute()
 
@@ -42,9 +43,10 @@ questionId = -1
 venmo = False
 
 for word in s.split(','):
+    word = word.lower()
     if "venmo username" in word:
         venmo = True
-    id_index = word.find("questionId")
+    id_index = word.find("questionid")
     if id_index != -1 and venmo:
         questionId = word[id_index+14: id_index+22]
         venmo = False
