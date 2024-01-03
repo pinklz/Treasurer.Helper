@@ -4,6 +4,11 @@ from oauth2client import client, file, tools
 
 import json
 
+'''
+Maybe store names instead and hope that people's names match 
+the sheet
+'''
+
 SCOPES = [
     "https://www.googleapis.com/auth/forms.body.readonly",
     "https://www.googleapis.com/auth/forms.responses.readonly"
@@ -23,10 +28,8 @@ service = discovery.build(
     static_discovery=False,
 )
 
-# Prints the responses of your specified form:
 form_id = input("Input form ID: ")
 
-#print(result)
 
 form = service.forms().get(formId=form_id).execute()  #holds form
 request = service.forms().responses().list(formId=form_id, pageToken=None)
@@ -35,22 +38,34 @@ response = request.execute()  #holds response
 
 items = form['items']
 s = str(items)
-
 questionId = -1
-venmo = False
+venmo_bool = False
+name_index = -1
+name_id = -1
+name_bool = False
 
 for word in s.split(','):
     word = word.lower()
     if "venmo username" in word:
-        venmo = True
+        venmo_bool = True
     id_index = word.find("questionid")
-    if id_index != -1 and venmo:
+    if id_index != -1 and venmo_bool:
         questionId = word[id_index+14: id_index+22]
-        venmo = False
+        venmo_bool = False
+
+    if "name" in word and "username" not in word:
+        name_bool = True
+    name_index = word.find("questionid")
+    if name_index != -1 and name_bool:
+        name_id = word[name_index+14 : name_index+22]
+        name_bool = False
+            
 
 print("-------------Setting questionId: ", questionId)
+print(name_id)
 
-venmos = []
+usernames = []
+names = []
 for resp in response['responses']:
     ans = resp['answers']
     if questionId in ans:
@@ -58,7 +73,19 @@ for resp in response['responses']:
         temp = temp['textAnswers']
         temp = temp['answers']
         for answer in temp:
-            venmos.append(answer['value'])
+            usernames.append(answer['value'])
+
+    if name_id in ans:
+        temp = ans[name_id]
+        temp = temp['textAnswers']
+        temp = temp['answers']
+        for answer in temp:
+            names.append(answer['value'])
+
+
+venmos = []
+for i in range(0, len(names)):
+    venmos.append(names[i] + ":" + usernames[i])
 
 print(venmos)
 
