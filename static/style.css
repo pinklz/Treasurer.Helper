@@ -1,0 +1,21 @@
+* {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.column {
+    flex: 50%;
+}
+.row {
+    display: flex;
+}
+
+input {
+    padding: 5px 30px;
+    margin: 8px 0px;
+}
+input[type=text]:focus {
+    border: 3px solid #555;
+}
+.header {
+    text-align: center;
+}

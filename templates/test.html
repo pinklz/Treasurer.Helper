@@ -1,15 +1,34 @@
 <!-- home.html -->
 <!DOCTYPE html>
-<html>
+<html>  
+
 <head>
-    <title>Home Page</title>
+    <link rel="stylesheet" href="static/style.css">
+
+    <title>Test Page</title>
 </head>
 <body>
-    <h1>{{ title }}</h1>
-    <p>Still ugly but this time with info</p>
+    <h1 class="header">{{ title }}</h1>
+    <div class="row">
+        <div class="column">
+            <h3>FORM INFO</h3>
+            <section class="list">
+                {% for v in venmos %}
+                <div>{{ v }}</div>
+                {% endfor %}
+            </section>
+        </div>
 
-    <p>{{ venmos }}</p>
-    <h3>PAYMENTS</h3>
-    <p>{{ payments }}</p>
+
+        <div class="column">
+            <h3>VENMO PAYMENTS RECEIVED</h3>
+    
+            <section class="list">
+                {% for p in payments %}
+                <div>{{ p }}</div>
+                {% endfor %}
+            </section>
+        </div>
+    </div>
 </body>
 </html>

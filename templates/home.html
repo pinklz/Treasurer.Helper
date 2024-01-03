@@ -2,17 +2,17 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" href="static/style.css">
     <title>Home Page</title>
 </head>
 <body>
-    <h1>{{ title }}</h1>
-    <p>Super ugly website</p>
+    <h1 class="header">{{ title }}</h1>
 
     <p>
         <form action="/test" method="post">
-            Form ID: <input type="text" name="form_id">
-            Venmo Username: <input type="text" name="username">
-            CSV File Name: <input type="text" name="csv_file">
+            Form ID: <input type="text" name="form_id"> <br>
+            Venmo Username: <input type="text" name="username"> <br>
+            CSV File Name: <input type="text" name="csv_file"> <br>
             <input type="submit" name="form" value="Submit" />
         </form>
     </p>

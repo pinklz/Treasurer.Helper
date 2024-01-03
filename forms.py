@@ -90,11 +90,11 @@ def get_venmos(form_id):
 
     venmos = []
     for i in range(0, len(names)):
-        venmos.append(names[i] + ":" + usernames[i])
+        venmos.append(names[i] + "   -   " + usernames[i])
 
     #for i in venmos:
      #   print(i)
-    return venmos
+    return sorted(venmos)
 
 
 
@@ -149,8 +149,8 @@ def get_payments(username, csv_file):
                         date += s[date_index]
                         date_index+=1
 
-                    payments.append(name + ":" + amount + ":" + date + ":" + reason)
+                    payments.append(name + "  -  " + amount + "  -  " + date + "  -  " + reason)
 
     #for i in payments:
      #   print(i)
-    return payments
+    return sorted(payments)
