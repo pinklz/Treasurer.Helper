@@ -36,8 +36,6 @@ def get_venmos(form_id):
         static_discovery=False,
     )
 
-    #form_id = input("Input form ID: ")
-
     form = service.forms().get(formId=form_id).execute()  #holds form
     request = service.forms().responses().list(formId=form_id, pageToken=None)
     response = request.execute()  #holds response
@@ -92,22 +90,12 @@ def get_venmos(form_id):
     for i in range(0, len(names)):
         venmos.append(names[i] + "   -   " + usernames[i])
 
-    #for i in venmos:
-     #   print(i)
     return sorted(venmos)
 
-
-
-#print(form)
-#print("\n\nBRUH\n\n")
-#print(response)
 
 ########## READ CSV VENMO TRANSACTION HISTORY ##########
 
 def get_payments(username, csv_file):
-
-    #username = input("Input username: ")
-    #csv_file = input("Input csv file name: ")
     payments = []
 
     with open(csv_file, newline='') as csvfile:
@@ -151,6 +139,4 @@ def get_payments(username, csv_file):
 
                     payments.append(name + "  -  " + amount + "  -  " + date + "  -  " + reason)
 
-    #for i in payments:
-     #   print(i)
     return sorted(payments)

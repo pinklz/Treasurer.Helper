@@ -14,7 +14,10 @@
             <h3>FORM INFO</h3>
             <section class="list">
                 {% for v in venmos %}
-                <div>{{ v }}</div>
+                <div>
+                    <input type="checkbox" />
+                    {{ v }}
+                </div>
                 {% endfor %}
             </section>
         </div>
