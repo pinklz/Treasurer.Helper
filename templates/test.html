@@ -7,8 +7,10 @@
 
     <title>Test Page</title>
 </head>
+<header>
+    <h1 class="headertext">{{ title }}</h1>
+</header>
 <body>
-    <h1 class="header">{{ title }}</h1>
     <div class="row">
         <div class="column">
             <h3>FORM INFO</h3>
@@ -28,7 +30,7 @@
     
             <section class="list">
                 {% for p in payments %}
-                <div>{{ p }}</div>
+                <div class="venmoname">{{ p }}</div>
                 {% endfor %}
             </section>
         </div>

@@ -1,20 +1,24 @@
 <!-- home.html -->
 <!DOCTYPE html>
 <html>
-<head>
-    <link rel="stylesheet" href="static/style.css">
-    <title>Home Page</title>
-</head>
-<body>
-    <h1 class="header">{{ title }}</h1>
+    <head>
+        <link rel="stylesheet" href="static/style.css">
+        <title>Home Page</title>
+    </head>
+    <header>
+        <h1 class="headertext">{{ title }}</h1>
+    </header>
+    <body>
+        <div class="forms">
+            <p>
+                <form action="/test" method="post">
+                    Form ID: <input type="text" name="form_id"> <br>
+                    Venmo Username: <input type="text" name="username"> <br>
+                    CSV File Name: <input type="text" name="csv_file"> <br>
+                    <input type="submit" name="form" value="Submit" />
+                </form>
+            </p>
+        </div>
 
-    <p>
-        <form action="/test" method="post">
-            Form ID: <input type="text" name="form_id"> <br>
-            Venmo Username: <input type="text" name="username"> <br>
-            CSV File Name: <input type="text" name="csv_file"> <br>
-            <input type="submit" name="form" value="Submit" />
-        </form>
-    </p>
-</body>
+    </body>
 </html>

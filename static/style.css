@@ -2,8 +2,37 @@
     font-family: 'Times New Roman', Times, serif;
 }
 
+header {
+    margin-top: 0px;
+    background-color: rgb(225, 172, 217);
+    margin-left: 0px;
+    height: 100px;
+    text-align: center;
+}
+
+body {
+    margin-top: 0px;
+    margin-left: 0px;
+}
+
+.venmoname {
+    padding-bottom: 8px;
+}
+
+.headertext {
+    margin-top: 0px;
+    padding-top:12px;
+    font-size: 60px;
+}
+
+.forms {
+    margin-left: 8%;
+    font-size: 20px;
+}
+
 .column {
     flex: 50%;
+    margin-left: 8%;
 }
 .row {
     display: flex;
@@ -11,11 +40,12 @@
 
 input {
     padding: 5px 30px;
-    margin: 8px 0px;
+    margin: 0px 0px;
+    min-height: 30px;
+}
+input[type=text] {
+    margin: 5px;
 }
 input[type=text]:focus {
     border: 3px solid #555;
-}
-.header {
-    text-align: center;
 }
