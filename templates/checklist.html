@@ -15,12 +15,15 @@
         <div class="column">
             <h3>FORM INFO</h3>
             <section class="list">
-                {% for v in venmos %}
-                <div>
-                    <input type="checkbox" />
-                    {{ v }}
-                </div>
-                {% endfor %}
+                <form action="/unpaid" method="POST">
+                    {% for v in venmos %}
+                    <div>
+                        {{ v }} &ensp; &ensp; &ensp;
+                        UNPAID<input type="checkbox" value="{{v}}" name="unpaidchecks" checked/>
+                    </div>
+                    {% endfor %}
+                    <input type="submit" />
+                </form>
             </section>
         </div>
 

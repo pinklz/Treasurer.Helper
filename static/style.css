@@ -15,6 +15,11 @@ body {
     margin-left: 0px;
 }
 
+h2 {
+    font-size: 42px;
+    margin-left: 40px;
+}
+
 .venmoname {
     padding-bottom: 8px;
 }
@@ -36,6 +41,12 @@ body {
 }
 .row {
     display: flex;
+}
+
+.unpaidlist {
+    margin-left:40px;
+    font-size:30px;
+    
 }
 
 input {

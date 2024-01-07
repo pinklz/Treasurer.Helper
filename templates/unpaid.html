@@ -1,0 +1,22 @@
+<!-- unpaid.html -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="static/style.css">
+        <title>Unpaid List</title>
+    </head>
+    <header>
+        <h1 class="headertext">{{ title }}</h1>
+    </header>
+    <body>
+        <h2>UNPAID</h2>            
+            <section class="list">
+                {% for u in unpaidlist %}
+                <div class="unpaidlist">
+                    {{ u }}
+                </div>
+                {% endfor %}
+            </section>
+
+    </body>
+</html>
